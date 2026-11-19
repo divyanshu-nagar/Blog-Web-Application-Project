@@ -1,0 +1,19 @@
+<%- include("partials/header.ejs") %>
+<div class="body"> 
+<% if(allPosts.length > 0){ %>
+    <% allPosts.forEach(function(p,index) { %> 
+    <div class="blogs">
+<h2><%= p.title %></h2>
+<p><%= p.content %></p>
+
+<form action="/delete/<%= index %>", method="post">
+    <button type="submit" class="delete-btn">Delete Post</button>
+</form>
+</div>
+<% } ) %>
+ <%} else {  %>
+    <h1 style="text-align: center;">You Have Not Made Any Post.</h1>
+<% } %>
+
+</div>
+<%- include("partials/footer") %>
